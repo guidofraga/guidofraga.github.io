@@ -1,0 +1,83 @@
+/* Basic styles, feel free to enhance */
+/* Mobile-first responsive design */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 999;
+  }
+  
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav ul li {
+    display: inline;
+    margin-right: 20px;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #fff;
+  }
+  
+  .main {
+    padding-top: 60px; /* Adjust for fixed header */
+  }
+  
+  /* Styling for different sections */
+  .hero {
+    background-color: #f4f4f4;
+    padding: 100px 20px;
+    text-align: center;
+  }
+  
+  .about {
+    padding: 50px 20px;
+  }
+  
+  .projects {
+    padding: 50px 20px;
+  }
+  
+  .projects .project {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .contact {
+    background-color: #f4f4f4;
+    padding: 50px 20px;
+    text-align: center;
+  }
+  
+  .contact-form input,
+  .contact-form textarea,
+  .contact-form button {
+    display: block;
+    margin-bottom: 20px;
+    width: 100%;
+    padding: 10px;
+  }
+  
+  /* Social Media Icons */
+  .social-icons {
+    margin-top: 20px;
+  }
+  
+  .icon-link {
+    margin-right: 10px;
+  }
+  
