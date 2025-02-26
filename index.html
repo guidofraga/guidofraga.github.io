@@ -1,66 +1,618 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Name - Personal Website</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guido de Carvalho | Computational Modeling & AI Researcher</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #475569;
+            --light: #f8fafc;
+            --dark: #0f172a;
+            --accent: #8b5cf6;
+            --success: #22c55e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            color: white;
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        h1, h2, h3 {
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary);
+        }
+
+        .profile-info h1 {
+            margin-bottom: 0.5rem;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: rgba(37, 99, 235, 0.1);
+            color: var(--primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .skill-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            flex: 1 1 300px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 2rem auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--primary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+
+        .container-timeline {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            left: 50%;
+        }
+
+        .container-timeline::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: white;
+            border: 4px solid var(--primary);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .left::after {
+            right: -10px;
+        }
+
+        .right::after {
+            left: -10px;
+        }
+
+        .content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .publications {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .publication-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .publication-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .publication-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .publication-card p {
+            font-size: 0.9rem;
+            color: var(--secondary);
+        }
+
+        .publication-year {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .container-timeline {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .container-timeline::after {
+                left: 21px;
+            }
+            
+            .right {
+                left: 0%;
+            }
+            
+            .profile {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* Animation for neural network */
+        #neural-network {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Neural network canvas */
+        canvas {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Scroll indicator */
+        .scroll-down {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+
+        .scroll-down svg {
+            width: 30px;
+            height: 30px;
+            fill: white;
+        }
+
+        /* Animated background for skills section */
+        .skills-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.05;
+            pointer-events: none;
+            background: 
+                linear-gradient(45deg, var(--primary) 25%, transparent 25%, transparent 75%, var(--primary) 75%, var(--primary)),
+                linear-gradient(45deg, var(--primary) 25%, transparent 25%, transparent 75%, var(--primary) 75%, var(--primary));
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            animation: moveBackground 20s linear infinite;
+        }
+
+        @keyframes moveBackground {
+            0% {
+                background-position: 0 0, 10px 10px;
+            }
+            100% {
+                background-position: 100px 100px, 110px 110px;
+            }
+        }
+
+        .section-skills {
+            position: relative;
+            overflow: hidden;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <nav>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main>
-    <section id="home" class="hero">
-      <h1>Welcome to My Website</h1>
-      <p>Edit this text to describe yourself and what you do.</p>
-    </section>
-
-    <section id="about" class="about">
-      <h2>About Me</h2>
-      <p>Add your biography and details about your experiences and skills here.</p>
-    </section>
-
-    <section id="projects" class="projects">
-      <h2>Projects</h2>
-      <div class="project-container">
-        <!-- Placeholder for projects -->
-        <div class="project">
-          <h3>Project Title</h3>
-          <p>Description of the project goes here.</p>
+    <header>
+        <div id="neural-network"></div>
+        <div class="container content-wrapper">
+            <div class="profile">
+                <div class="profile-img">GF</div>
+                <div class="profile-info">
+                    <h1>Guido F. M. G. de Carvalho</h1>
+                    <p>Ph.D. Candidate in Computational Modeling & Information and Communication Technologies</p>
+                    <div>
+                        <span class="tag">Machine Learning</span>
+                        <span class="tag">Atmospheric Modeling</span>
+                        <span class="tag">Data Science</span>
+                        <span class="tag">Physics-Informed Neural Networks</span>
+                    </div>
+                </div>
+            </div>
+            <p>
+                Currently pursuing a dual Ph.D. through a cotutelle program between the Universidad de Granada (Spain) and Rio de Janeiro State University (Brazil). My research focuses on applications of Computational Modeling and Data Science methodologies to solve practical problems in engineering and environmental sciences.
+            </p>
+            <div style="margin-top: 2rem;">
+                <a href="#contact" class="btn">Contact Me</a>
+                <a href="#research" class="btn" style="background-color: var(--secondary); margin-left: 1rem;">View My Research</a>
+            </div>
         </div>
-        <!-- Add more projects as needed -->
-      </div>
+        <div class="scroll-down">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M12 17.414L3.293 8.707l1.414-1.414L12 14.586l7.293-7.293 1.414 1.414L12 17.414z"/>
+            </svg>
+        </div>
+    </header>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>
+                I am a researcher specializing in computational modeling, machine learning, and data science with a focus on environmental applications. My work centers on developing physics-informed machine learning approaches to solve complex atmospheric pollution transport problems.
+            </p>
+            <p>
+                With a background in Mechanical Engineering and currently pursuing dual Ph.D. degrees, I combine strong theoretical knowledge with practical applications in fields ranging from atmospheric science to optimization methods.
+            </p>
+        </div>
     </section>
 
-    <section id="contact" class="contact">
-      <h2>Contact Me</h2>
-      <p>Get in touch! Fill out the form or find me on social media.</p>
-      <div class="social-icons">
-        <!-- Placeholder for social media links -->
-        <a href="#" target="_blank" class="icon-link">Social Media</a>
-        <!-- Add more social media icons as needed -->
-      </div>
-      <div class="contact-form">
-        <!-- Form for contact -->
-        <form id="contactForm">
-          <input type="text" placeholder="Your Name" required>
-          <input type="email" placeholder="Your Email" required>
-          <textarea placeholder="Your Message" required></textarea>
-          <button type="submit">Send</button>
-        </form>
-      </div>
+    <section id="education">
+        <div class="container">
+            <h2>Education</h2>
+            <div class="timeline">
+                <div class="container-timeline left">
+                    <div class="content">
+                        <h3>Ph.D. in Information and Communication Technologies</h3>
+                        <p>Universidad de Granada, Spain | 2023 - 2025</p>
+                        <p>Thesis: "Formulation and Solution of Direct and Inverse Problems in Pollutant Transport in the Atmospheric Boundary Layer Using Physics-Informed Machine Learning"</p>
+                    </div>
+                </div>
+                <div class="container-timeline right">
+                    <div class="content">
+                        <h3>Ph.D. in Computational Modeling</h3>
+                        <p>Rio de Janeiro State University, Brazil | 2021 - 2025</p>
+                        <p>Thesis: "Formulation and Solution of Direct and Inverse Problems in Pollutant Transport in the Atmospheric Boundary Layer Using Physics-Informed Machine Learning"</p>
+                    </div>
+                </div>
+                <div class="container-timeline left">
+                    <div class="content">
+                        <h3>Mechanical Engineering</h3>
+                        <p>Rio de Janeiro State University, Brazil | 2013 - 2019</p>
+                        <p>Emphasis: Computational modeling of heat transfer and transport phenomena</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
-  </main>
 
-  <script src="script.js"></script>
-</body>
-</html>
+    <section class="section-skills" id="skills">
+        <div class="skills-bg"></div>
+        <div class="container content-wrapper">
+            <h2>Skills</h2>
+            <div class="skills-container">
+                <div class="skill-card">
+                    <h3>Programming & Tools</h3>
+                    <p>Proficient in Python, MATLAB, and SQL; extensive experience with machine learning frameworks (e.g., PyTorch, TensorFlow), data analysis libraries (e.g., pandas, NumPy), and visualization tools (e.g., Matplotlib, Seaborn).</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Machine Learning & Optimization</h3>
+                    <p>Expertise in neural networks, statistical learning, and predictive modeling for structured and unstructured data; adept at exploratory data analysis (EDA), feature engineering, and data pipeline development.</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Languages</h3>
+                    <p>Fluent in English; strong competencies in Spanish; proficient in French.</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Miscellaneous</h3>
+                    <p>Skilled in consultation, training, and LaTeX typesetting and publishing; experienced in interdisciplinary collaboration on computational and machine learning projects.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <h2>Professional Experience</h2>
+            <div class="timeline">
+                <div class="container-timeline right">
+                    <div class="content">
+                        <h3>Researcher</h3>
+                        <p>Rio de Janeiro State University | 2021 - Present</p>
+                        <p>Conducting research on atmospheric pollutant dispersion simulations, source identification, and inverse problems using neural networks, machine learning, and data analysis.</p>
+                    </div>
+                </div>
+                <div class="container-timeline left">
+                    <div class="content">
+                        <h3>Physics Teacher</h3>
+                        <p>Pensi | 2017 - 2021</p>
+                        <p>Provided academic support to high school and pre-university students in physics, ensuring a comprehensive understanding of complex topics and preparation for university entrance exams.</p>
+                    </div>
+                </div>
+                <div class="container-timeline right">
+                    <div class="content">
+                        <h3>Physics Teacher</h3>
+                        <p>Rede Educativa UFF | 2016 - 2018</p>
+                        <p>Taught physics in a social pre-university course aimed at helping low-income students gain admission to higher education institutions. Focused on foundational concepts and exam preparation strategies.</p>
+                    </div>
+                </div>
+                <div class="container-timeline left">
+                    <div class="content">
+                        <h3>Commercial Director</h3>
+                        <p>Serra Jr. Engenharia | 2014 - 2015</p>
+                        <p>Oversaw commercial operations for a junior engineering company. Managed client relationships, developed business strategies, and coordinated project execution.</p>
+                    </div>
+                </div>
+                <div class="container-timeline right">
+                    <div class="content">
+                        <h3>Math Instructor</h3>
+                        <p>Kumon | 2013 - 2016</p>
+                        <p>Guided students in mathematical concepts through the Kumon method, focusing on individualized learning, problem solving skills, and independent study habits.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="research">
+        <div class="container">
+            <h2>Research Publications</h2>
+            <div class="publications">
+                <div class="publication-card">
+                    <span class="publication-year">2025</span>
+                    <h3>MLP Neural Networks for Accelerated Pollution Prediction in Environmental Monitoring Systems</h3>
+                    <p>G. F. M. G. de Carvalho, D. F. Corrêa, D. A. Pelta, D. C. Knupp, and A. J. S. Neto</p>
+                    <p>HAIS 23 Special Issue of the Logic Journal of the IGPL</p>
+                </div>
+                <div class="publication-card">
+                    <span class="publication-year">2024</span>
+                    <h3>Physics Informed Neural Networks and k-epsilon Model Applied to Source Identification of Atmospheric Releases</h3>
+                    <p>G. F. M. G. de Carvalho, R. Albani, J. P. de Lima Costa Salazar, A. J. da Silva Neto, D. Moreira, and D. Pelta</p>
+                    <p>Proceedings of the International Conference on Inverse Problems in Engineering - ICIPE</p>
+                </div>
+                <div class="publication-card">
+                    <span class="publication-year">2024</span>
+                    <h3>Optimization Methods to Obtain Unknown Parameters in Green Roof Energy Balance Modeling</h3>
+                    <p>G. F. M. G. de Carvalho, R. Albani, M. H. S. Siqueira, V. S. Nogueira, D. F. Corrêa, and A. J. da Silva Neto</p>
+                    <p>Proceedings of the ENMC/ECTM</p>
+                </div>
+                <div class="publication-card">
+                    <span class="publication-year">2024</span>
+                    <h3>Computational Fluid Dynamics Simulations of Urban-like Scenario Including Canopy Cover</h3>
+                    <p>G. F. M. G. de Carvalho, R. Albani, M. H. S. Siqueira, A. J. da Silva Neto, and D. M. Moreira</p>
+                    <p>Proceedings of the ENMC/ECTM</p>
+                </div>
+                <div class="publication-card">
+                    <span class="publication-year">2023</span>
+                    <h3>Efficient Simulation of Pollutant Dispersion Using Machine Learning</h3>
+                    <p>G. F. Carvalho, D. F. Corrêa, D. A. Pelta, D. C. Knupp, and A. J. S. Neto</p>
+                    <p>Lecture Notes in Computer Science, pp. 372–383</p>
+                </div>
+                <div class="publication-card">
+                    <span class="publication-year">2023</span>
+                    <h3>Optimizing Contaminant Source Identification with MLP Neural Network</h3>
+                    <p>G. F. M. G. de Carvalho, A. S. Neto, D. Knupp, and D. Pelta</p>
+                    <p>Proceedings of the 27th International Congress of Mechanical Engineering</p>
+                </div>
+                <div class="publication-card">
+                    <span class="publication-year">2023</span>
+                    <h3>On the Prediction of Anomalous Contaminant Diffusion</h3>
+                    <p>D. Corrêa, G. F. Carvalho, D. A. Pelta, C. F. Toledo, and A. J. S. Neto</p>
+                    <p>Lecture Notes in Networks and Systems, pp. 290–299</p>
+                </div>
+                <div class="publication-card">
+                    <span class="publication-year">2021</span>
+                    <h3>Formulação e solução de problemas diretos e inversos em meios porosos para o estudo de fluxo de seiva em plantas</h3>
+                    <p>G. F. M. G. de Carvalho, E. F. de Sousa, and A. J. da Silva Neto</p>
+                    <p>Anais do Encontro Nacional de Modelagem Computacional e Encontro de Ciência e Tecnologia de Materiais</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <p>I'm always open to collaborations and discussions about research in computational modeling, environmental science, and machine learning.</p>
+            <p>Email: guidofragamgc@gmail.com</p>
+            <div class="social-links">
+                <a href="https://linkedin.com/in/guido-fraga" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                </a>
+                <a href="https://github.com/guidofraga" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+                <a href="#" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                    </svg>
+                </a>
+                <a href="#" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
