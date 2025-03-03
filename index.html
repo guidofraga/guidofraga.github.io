@@ -188,15 +188,15 @@
         }
 
         .btn-secondary {
-    background-color: transparent; /* Semi-transparent white */
-    border: 2px solid var(--primary);
-    color: white;
-    backdrop-filter: blur(2px); /* Creates the acrylic blur effect */
-    -webkit-backdrop-filter: blur(10px); /* Safari support */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 
-                0 1px 3px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
-}
+            background-color: transparent; /* Semi-transparent white */
+            border: 2px solid var(--primary);
+            color: white;
+            backdrop-filter: blur(2px); /* Creates the acrylic blur effect */
+            -webkit-backdrop-filter: blur(10px); /* Safari support */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 
+                        0 1px 3px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
 
         .button-group {
             margin-top: 1rem;
@@ -223,14 +223,13 @@
             object-fit: cover;
             border: 4px solid white;
             box-shadow: var(--box-shadow);
-            background: linear-gradient(145deg, var(--primary-light), var(--primary-dark));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 5rem;
-            color: white;
             position: relative;
             overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .profile-img:hover{
+            transform: scale(1.03);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
 
         .profile-img::after {
@@ -1693,7 +1692,7 @@
         <!-- Navigation -->
         <nav class="nav">
             <div class="nav-container container">
-                <a href="#" class="logo">Guido</a>
+                <a href="#" class="logo">Home</a>
                 <div class="nav-links">
                     <a href="#about" class="nav-link">About</a>
                     <a href="#research" class="nav-link">Research</a>
