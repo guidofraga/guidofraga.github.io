@@ -188,10 +188,15 @@
         }
 
         .btn-secondary {
-            background-color: transparent;
-            border: 2px solid var(--primary);
-            color: white;
-        }
+    background-color: transparent; /* Semi-transparent white */
+    border: 2px solid var(--primary);
+    color: white;
+    backdrop-filter: blur(2px); /* Creates the acrylic blur effect */
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 
+                0 1px 3px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
 
         .button-group {
             margin-top: 1rem;
