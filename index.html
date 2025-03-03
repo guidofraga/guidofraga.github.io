@@ -1935,10 +1935,30 @@
                 </div>
                 <div class="footer-bottom">
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-github"></i></a>
-                        <a href="#"><i class="fab fa-researchgate"></i></a>
+                        <a href="https://www.linkedin.com/in/guido-fraga" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           aria-label="LinkedIn Profile"
+                           class="linkedin">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/guidofraga" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           aria-label="GitHub Profile"
+                           class="github">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.researchgate.net/profile/Guido-Carvalho" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           aria-label="ResearchGate Profile"
+                           class="researchgate">
+                            <i class="fab fa-researchgate"></i>
+                        </a>
                     </div>
+                    <p>&copy; 2024 Guido de Carvalho. All rights reserved.</p>
+                </div>
                     <p>&copy; 2024 Guido de Carvalho. All rights reserved.</p>
                 </div>
             </div>
@@ -1978,7 +1998,7 @@
             const canvas = document.getElementById('neural-network');
             const ctx = canvas.getContext('2d');
             let particles = [];
-            const particleCount = window.innerWidth < 768 ? 100 : 250;
+            const particleCount = window.innerWidth < 768 ? 200 : 500;
 
             class Particle {
                 constructor() {
