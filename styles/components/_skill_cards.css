@@ -1,0 +1,105 @@
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.skill-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: var(--box-shadow);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.skill-card::before {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(to right, var(--primary-lighter), transparent);
+    top: -50px;
+    left: -50px;
+    border-radius: 50%;
+    opacity: 0.1;
+    transition: all 0.5s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.skill-card:hover::before {
+    transform: scale(3);
+    opacity: 0.05;
+}
+
+.skill-card h3 {
+    color: var(--primary-dark);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.skill-card h3::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: var(--primary-lighter);
+    border-radius: 2px;
+}
+
+.skill-card i {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    display: block;
+}
+        /* Skill Cards Enhancement */
+.skill-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.skill-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.skill-list li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(37, 99, 235, 0.1);
+    display: flex;
+    justify-content: space-between;
+}
+
+.skill-list li:last-child {
+    border-bottom: none;
+}
+
+.skill-category {
+    font-weight: 600;
+    color: var(--primary-dark);
+    min-width: 120px;
+}
+
+@media (max-width: 768px) {
+    .skills-container {
+        grid-template-columns: 1fr;
+        margin-top: 2rem;
+    }
+}

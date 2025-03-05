@@ -1,0 +1,59 @@
+.language-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.language-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem;
+    background: rgba(37, 99, 235, 0.05);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.language-item:hover {
+    transform: translateX(5px);
+    background: rgba(37, 99, 235, 0.1);
+}
+
+.language-name {
+    font-weight: 500;
+    color: var(--secondary);
+}
+
+.language-level {
+    font-size: 0.85rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.language-level.native {
+    background: var(--success);
+    color: white;
+}
+
+.language-level.fluent {
+    background: var(--primary);
+    color: white;
+}
+
+.language-level.advanced {
+    background: var(--primary-light);
+    color: white;
+}
+
+.language-level.intermediate {
+    background: var(--primary-lighter);
+    color: var(--primary-dark);
+}
+
+.level-label {
+    position: absolute;
+    right: 0;
+    top: -20px;
+    font-size: 0.8rem;
+    color: var(--primary-dark);
+}

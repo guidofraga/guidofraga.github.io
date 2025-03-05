@@ -1,0 +1,27 @@
+section {
+    padding: 6rem 0;
+    position: relative;
+}
+
+section:nth-child(odd) {
+    background-color: var(--light);
+}
+
+section:nth-child(even) {
+    background-color: var(--card-bg);
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-title h2 {
+    display: inline-block;
+}
+
+.section-title h2::after {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+}

@@ -1,0 +1,16 @@
+header {
+    position: relative;
+    overflow: hidden;
+    background: var(--gradient-bg);
+    color: var(--card-bg);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    header {
+        min-height: auto;
+        padding: 4rem 0 2rem;
+    }
+}
