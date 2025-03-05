@@ -1,22 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" width="60" height="60"><svg xmlns="http://www.w3.org/2000/svg" viewBox="10 20 60 60">
-  <!-- Input Layer -->
-  <circle cx="20" cy="30" r="5" fill="#2563eb"></circle>
-  <circle cx="20" cy="50" r="5" fill="#2563eb"></circle>
-  <circle cx="20" cy="70" r="5" fill="#2563eb"></circle>
-  
-  <!-- Hidden Layer -->
-  <circle cx="40" cy="40" r="5" fill="#2563eb"></circle>
-  <circle cx="40" cy="60" r="5" fill="#2563eb"></circle>
-  
-  <!-- Output Layer -->
-  <circle cx="60" cy="50" r="6" fill="#2563eb"></circle>
-  
-  <!-- Connections -->
-  <path d="M20 30Q35 25 40 40
-           M20 50Q35 55 40 40
-           M20 70Q35 75 40 60
-           M40 40Q50 45 60 50
-           M40 60Q50 55 60 50" stroke="#2563eb" stroke-width="1.5" fill="none"></path>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" width="60" height="60"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" width="60" height="60">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="10 20 60 60">
+    <!-- Input Layer -->
+    <circle cx="20" cy="30" r="5" fill="#2563eb"></circle>
+    <circle cx="20" cy="50" r="5" fill="#2563eb"></circle>
+    <circle cx="20" cy="70" r="5" fill="#2563eb"></circle>
+    
+    <!-- Hidden Layer -->
+    <circle cx="40" cy="40" r="5" fill="#2563eb"></circle>
+    <circle cx="40" cy="60" r="5" fill="#2563eb"></circle>
+    
+    <!-- Output Layer -->
+    <circle cx="60" cy="50" r="5" fill="#2563eb"></circle>
+    
+    <!-- Connections -->
+    <path d="M20 30L40 40
+      M20 50L40 40
+      M20 70L40 60
+      M40 40L60 50
+      M40 60L60 50" stroke="#2563eb" stroke-width="1.5" fill="none"></path>
+  </svg>
 </svg><style>@media (prefers-color-scheme: light) { :root { filter: none; } }
-@media (prefers-color-scheme: dark) { :root { filter: invert(100%); } }
+@media (prefers-color-scheme: dark) { :root { filter: contrast(0.3846153846153846) brightness(4.5); } }
 </style></svg>
