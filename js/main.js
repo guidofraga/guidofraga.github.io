@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const getParticleCount = () => {
         const width = window.innerWidth;
-        return width < 480 ? 200 : width < 768 ? 300 : 600;
+        return width < 480 ? 100 : width < 768 ? 200 : 300;
     };
 
     class Particle {

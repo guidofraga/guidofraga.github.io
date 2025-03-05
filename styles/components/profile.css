@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     gap: 4rem;
-    margin-bottom: 2rem;
+    margin-bottom: 8rem;
 }
 
 .profile-img {
@@ -10,25 +10,16 @@
     height: 250px;
     border-radius: 50%;
     object-fit: cover;
-    border: 4px solid  rgb(156, 179, 238);
+    border: 4px solid  var(--primary-lighter);
     box-shadow: var(--box-shadow);
     position: relative;
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.profile-img:hover{
-    transform: scale(1.03);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transition: var(--transition);
 }
 
-.profile-img::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
-    top: -50%;
-    left: -50%;
+.profile-img:hover{
+    transform: scale(1.03);
+    box-shadow: var(--hover-shadow);
 }
 
 .profile-info {
@@ -38,7 +29,7 @@
 .profile-info h1 {
     margin-bottom: 1rem;
     font-size: 3.5rem;
-    background: rgb(156, 179, 238);
+    background: var(--primary-lighter);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -48,7 +39,7 @@
     font-size: 1.5rem;
     font-weight: 300;
     margin-bottom: 1.5rem;
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--card);
 }
 
 @media (max-width: 768px) {
@@ -56,9 +47,46 @@
         flex-direction: column;
         text-align: center;
         gap: 2rem;
-        padding-top: 80px; /* Space for fixed nav */
+        padding-top: 0px; /* Space for fixed nav */
+        margin-bottom: 13rem;
+
     }
 
+    .profile-info {
+        padding: 0 1rem;
+    }
+
+    .profile-info h1 {
+        font-size: 2.2rem;
+        line-height: 1.2;
+        margin-bottom: 0.8rem;
+    }
+
+    .profile-info p {
+        font-size: 1.1rem;
+        margin-bottom: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+        padding-top: 0px;
+    }
+
+    .profile-img {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid  var(--primary-lighter);
+        box-shadow: var(--box-shadow);
+        position: relative;
+        overflow: hidden;
+        transition: var(--transition);
+    }
     .profile-info {
         padding: 0 1rem;
     }
