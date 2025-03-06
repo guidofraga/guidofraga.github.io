@@ -49,6 +49,7 @@
     align-items: center;
     gap: 1rem;
     margin-bottom: 1.5rem;
+    justify-content: left;
 }
 
 .skill-card h3 {
@@ -111,16 +112,24 @@
 /* Responsive Design */
 
 @media (max-width: 768px) {
+    .skill-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.75rem;
+    }
     .skills-container {
         grid-template-columns: 1fr;
         gap: 1rem; /* Reduced gap for tighter screens */
     }
-    .skill-card {
-        padding: 1.5rem; /* Reduce overall padding */
+    .skill-card i {
+        font-size: 1.5rem;
+        display: block;
+        margin: 0 auto 0.5rem; /* Add bottom margin */
     }
     .skill-card h3 {
-        font-size: 1.3rem; /* Smaller heading font size */
-        text-align: center; /* Center the heading */
+        font-size: 1.3rem;
+        text-align: center;
+        width: 100%; /* Add this */
     }
     .skill-card i {
         font-size: 1.5rem; /* Adjust icon size */
@@ -138,3 +147,11 @@
     }
 }
 
+@media (max-width: 480px) {
+    .skill-header {
+        gap: 0.5rem;
+    }
+    .skill-card i {
+        font-size: 1.25rem;
+    }
+}

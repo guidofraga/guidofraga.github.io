@@ -1,99 +1,354 @@
-<!-- blog/post1.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guido de Carvalho | Computational Modeling & AI Researcher</title>
-
-    <!-- Favicon Setup -->
-    <link rel="icon" type="image/png" href="/assets/images/icons/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/assets/images/icons/favicon.svg" />
-    <link rel="shortcut icon" href="/assets/images/icons/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/apple-touch-icon.png" />
-    <meta name="apple-mobile-web-app-title" content="MyWebSite" />
-    <link rel="manifest" href="/assets/images/icons/site.webmanifest" />
-
-    <link rel="stylesheet" href="../styles/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Deep Dive into Physics-Informed Neural Networks</title>
+  
+  <!-- Favicon and base CSS (assumed to be included via main.css) -->
+  <link rel="stylesheet" href="../styles/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Additional CSS for new sections -->
+  <style>
+    /* Header Banner for Deep Dive Blog Post */
+    .blog-post-header {
+      background: url('../assets/images/pinn-banner-deep.jpg') center/cover no-repeat;
+      color: #fff;
+      padding: 120px 20px;
+      text-align: center;
+    }
+    .blog-post-header h1 {
+      font-size: 3.5em;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .blog-post-header .post-meta {
+      font-size: 1.1em;
+      opacity: 0.85;
+    }
+    /* Deep content styles */
+    .blog-content {
+      padding: 40px 20px;
+      line-height: 1.8;
+      font-size: 1.15em;
+    }
+    .blog-content h2 {
+      margin-top: 60px;
+      font-size: 2.5em;
+      color: #333;
+      border-bottom: 2px solid #e0e0e0;
+      padding-bottom: 10px;
+    }
+    .blog-content h3 {
+      margin-top: 40px;
+      font-size: 2em;
+      color: #444;
+    }
+    .blog-content p {
+      margin-bottom: 1.2em;
+    }
+    .blog-content ul, .blog-content ol {
+      margin-left: 25px;
+      margin-bottom: 1.2em;
+    }
+    /* Styling for code blocks and equations */
+    pre {
+      background: #f8f8f8;
+      padding: 15px;
+      overflow-x: auto;
+    }
+    code {
+      font-family: Consolas, Menlo, monospace;
+      background: #f0f0f0;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+    /* New section: Theoretical Analysis box */
+    .theory-box {
+      background: #fafafa;
+      border-left: 5px solid #007acc;
+      padding: 20px;
+      margin: 30px 0;
+    }
+    /* Interactive plot container */
+    .interactive-plot {
+      margin: 40px 0;
+      height: 400px;
+    }
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .blog-post-header h1 {
+        font-size: 2.5em;
+      }
+    }
+  </style>
+  
+  <!-- MathJax for equations -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  
+  <!-- Plotly for interactive visualizations -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="nav-container container">
-            <a href="#" class="logo">Home</a>
-            <div class="nav-links">
-                <a href="../index.html#about" class="nav-link">About</a>
-                <a href="../index.html#research" class="nav-link">Research</a>
-                <a href="../index.html#experience" class="nav-link">Experience</a>
-                <a href="../index.html#publications" class="nav-link">Publications</a>
-                <a href="../index.html#blog" class="nav-link">Blog</a>
-                <a href="../index.html#contact" class="nav-link">Contact</a>
-            </div>
-        </div>
-    </nav>
-    <header>
-        <canvas id="neural-network"></canvas>
-    </header>
-
-  <main class="container">
-    <article>
-      <h1>My First Blog Post</h1>
-      <span class="post-date">March 4, 2025</span>
-      <p>Welcome to my blog! [Your content goes here...]</p>
-      <!-- Continue with your post content -->
-    </article>
-  </main>
-        <!-- Footer -->
-        <footer>
-            <div class="container">
-                <div class="footer-content">
-                    <div class="footer-about">
-                        <h3>Guido de Carvalho</h3>
-                        <p>Computational Modeling & AI Researcher</p>
-                    </div>
-                    <div class="footer-nav">
-                        <h3>Navigation</h3>
-                        <ul>
-                            <li><a href="#about">About</a></li>
-                            <li><a href="#research">Research</a></li>
-                            <li><a href="#experience">Experience</a></li>
-                            <li><a href="#publications">Publications</a></li>
-                            <li><a href="#contact">Contact</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="footer-bottom">
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/guido-fraga" 
-                           target="_blank" 
-                           rel="noopener noreferrer"
-                           aria-label="LinkedIn Profile"
-                           class="linkedin">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="https://github.com/guidofraga" 
-                           target="_blank" 
-                           rel="noopener noreferrer"
-                           aria-label="GitHub Profile"
-                           class="github">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://www.researchgate.net/profile/Guido-Carvalho" 
-                           target="_blank" 
-                           rel="noopener noreferrer"
-                           aria-label="ResearchGate Profile"
-                           class="researchgate">
-                            <i class="fab fa-researchgate"></i>
-                        </a>
-                    </div>
-                    <p>&copy; 2024 Guido de Carvalho. All rights reserved.</p>
-                </div>
-                    <p>&copy; 2024 Guido de Carvalho. All rights reserved.</p>
-                </div>
-            </div>
-        </footer>
-  <script src="../js/main.js"></script>
+  <!-- Navigation: Reusing main site navigation -->
+  <nav class="nav">
+      <div class="nav-container container">
+          <a href="../index.html" class="logo">Home</a>
+          <div class="nav-links">
+              <a href="../#about" class="nav-link">About</a>
+              <a href="../#research" class="nav-link">Research</a>
+              <a href="../#experience" class="nav-link">Experience</a>
+              <a href="../#publications" class="nav-link">Publications</a>
+              <a href="../#blog" class="nav-link">Blog</a>
+              <a href="../#contact" class="nav-link">Contact</a>
+          </div>
+      </div>
+  </nav>
+  
+  <!-- Blog Post Header -->
+  <header class="blog-post-header">
+      <div class="container">
+          <h1>Deep Dive into Physics-Informed Neural Networks</h1>
+          <p class="post-meta">By Guido de Carvalho | March 2025 | Computational Modeling & AI Research</p>
+      </div>
+  </header>
+  
+  <!-- Blog Post Content -->
+  <article class="blog-content container">
+    <!-- Introduction -->
+    <section id="introduction">
+      <h2>Introduction</h2>
+      <p>
+        Physics-Informed Neural Networks (PINNs) have emerged as a breakthrough framework that marries the flexibility of deep learning with the rigorous principles of physical modeling. Unlike conventional neural networks that learn solely from data, PINNs incorporate governing differential equations directly into the loss function, ensuring that predictions respect the underlying physics.
+      </p>
+      <p>
+        This post provides a comprehensive deep dive into PINNs—from their mathematical foundations and training methodologies to convergence analysis and advanced applications in fluid dynamics, thermal management, and beyond. We explore both the theoretical insights and practical contributions that make PINNs a promising tool in computational science.
+      </p>
+    </section>
+    
+    <!-- Fundamentals and Mathematical Formulation -->
+    <section id="fundamentals">
+      <h2>Fundamentals & Mathematical Formulation</h2>
+      <p>
+        At their core, PINNs approximate the solution \( u(t, x) \) of a differential equation by parameterizing it with a neural network \( u_{\theta}(t,x) \), where \(\theta\) represents the weights and biases. The training process minimizes a composite loss:
+      </p>
+      <p>
+        $$\mathcal{L} = \mathcal{L}_{data} + \lambda\,\mathcal{L}_{physics},$$
+      </p>
+      <p>
+        where <em>\(\mathcal{L}_{data}\)</em> enforces agreement with available measurements or boundary data, and <em>\(\mathcal{L}_{physics}\)</em> penalizes the residual of the governing differential equation:
+      </p>
+      <p>
+        $$\mathcal{L}_{physics} = \left\| \frac{\partial u_{\theta}}{\partial t} + \mathcal{N}[u_{\theta}(t, x)] \right\|^2,$$
+      </p>
+      <p>
+        Here, \(\mathcal{N}\) denotes a nonlinear differential operator (for example, representing diffusion, advection, or reaction processes). This formulation ensures that the trained network not only fits the data but also respects the physical laws.
+      </p>
+    </section>
+    
+    <!-- Detailed Methodologies and Theoretical Insights -->
+    <section id="methodologies">
+      <h2>Deep Methodologies & Theoretical Insights</h2>
+      <p>
+        Over the past few years, extensive research has enriched the PINN framework. Researchers have advanced strategies in:
+      </p>
+      <ul>
+        <li><strong>Loss Function Design:</strong> Augmenting the basic loss with derivatives of the residual (gradient-enhanced PINNs) to accelerate convergence and improve accuracy.</li>
+        <li><strong>Adaptive Activation Functions:</strong> Using trainable parameters within activation functions (e.g., adaptive tanh or rational functions) to adjust the network's nonlinearity dynamically.</li>
+        <li><strong>Domain Decomposition:</strong> Breaking down complex domains into smaller subdomains (XPINNs, cPINNs) to address high-dimensional or multiscale problems efficiently.</li>
+        <li><strong>Optimization Techniques:</strong> Employing hybrid optimization strategies (combining genetic algorithms with gradient descent) and novel optimizers such as noise heavy-ball acceleration to mitigate the challenges of non-convex loss landscapes.</li>
+      </ul>
+      <p>
+        Theoretical analysis has begun to quantify the convergence and generalization errors of PINNs. For instance, using neural tangent kernel methods, researchers have derived error bounds that relate the training error with the approximation error of the PDE solution. One key insight is that as the training loss tends to zero, under suitable conditions, the network’s prediction converges uniformly to the true solution.
+      </p>
+      <div class="theory-box">
+        <p>
+          <strong>Theorem (Informal):</strong> For a well-posed PDE and under sufficient network capacity, if the composite loss \( \mathcal{L} \) is reduced below a given threshold, then the approximation error \( \| u_{\theta} - u \| \) is bounded by a constant times the training error, provided the collocation points are sufficiently dense.
+        </p>
+        <p>
+          This result, although still an active research area, provides a theoretical backbone for understanding why PINNs can outperform traditional solvers when data are sparse or the problem geometry is complex.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Convergence and Error Analysis -->
+    <section id="convergence">
+      <h2>Convergence & Error Analysis</h2>
+      <p>
+        Despite their empirical success, understanding the convergence properties of PINNs remains challenging. Factors such as the choice of collocation points, the balance between data and physics losses, and the network architecture all affect convergence.
+      </p>
+      <p>
+        Recent studies have developed error estimates that incorporate the density of training samples and the smoothness of the true solution. For example, when solving the Navier–Stokes equations, the convergence rate can depend on how well the neural network captures the high-frequency components of the velocity field.
+      </p>
+      <p>
+        Moreover, adaptive sampling methods—where more collocation points are added in regions of high residual—have shown to significantly reduce the generalization error. This strategy, often implemented via rejection sampling, helps the network focus on “difficult” areas of the solution space.
+      </p>
+    </section>
+    
+    <!-- Applications -->
+    <section id="applications">
+      <h2>Applications in Science & Engineering</h2>
+      <p>
+        PINNs have found applications in many areas:
+      </p>
+      <ul>
+        <li><strong>Fluid Dynamics:</strong> Solving the incompressible Navier–Stokes equations, simulating turbulent flows, and predicting aerodynamic performance.</li>
+        <li><strong>Thermal Management:</strong> Modeling heat transfer in complex geometries and inferring thermal boundary conditions from sparse sensor data.</li>
+        <li><strong>Material Science:</strong> Predicting material properties and microstructural evolution by integrating thermodynamics and kinetics into the network.</li>
+        <li><strong>Inverse Problems:</strong> Estimating unknown parameters or reconstructing source terms in PDEs using sparse and noisy measurements.</li>
+        <li><strong>Biological Systems:</strong> Modeling reaction–diffusion systems in cell dynamics and pharmacokinetics in personalized medicine.</li>
+      </ul>
+      <p>
+        The flexibility of PINNs to handle both forward and inverse problems makes them particularly attractive for digital twin applications and real-time system monitoring.
+      </p>
+    </section>
+    
+    <!-- Interactive Visualization -->
+    <section id="interactive-demo">
+      <h2>Interactive PINN Demonstration</h2>
+      <p>
+        Below is an interactive Plotly graph that simulates a PINN learning process for a simple function. The true function is, for example, \( \sin(x) \), while the PINN’s prediction is perturbed with adjustable noise to mimic training dynamics.
+      </p>
+      <div id="plotly-demo" class="interactive-plot"></div>
+    </section>
+    
+    <!-- Future Directions and Challenges -->
+    <section id="future">
+      <h2>Challenges & Future Directions</h2>
+      <p>
+        While PINNs hold great promise, several challenges remain:
+      </p>
+      <ol>
+        <li><strong>Scalability:</strong> Reducing training times for large-scale and high-dimensional problems.</li>
+        <li><strong>Robust Optimization:</strong> Developing optimizers that reliably escape local minima and balance multi-objective losses.</li>
+        <li><strong>Theoretical Foundations:</strong> Establishing rigorous error bounds and convergence criteria for diverse classes of PDEs.</li>
+        <li><strong>Adaptive Sampling:</strong> Refining techniques to dynamically place collocation points where they are most needed.</li>
+        <li><strong>Hybrid Models:</strong> Combining PINNs with classical solvers or neural operators to harness the strengths of both approaches.</li>
+      </ol>
+      <p>
+        Future research is likely to focus on integrating automatic hyperparameter tuning, transfer learning strategies, and the extension of PINNs to stochastic and fractional differential equations.
+      </p>
+    </section>
+    
+    <!-- Conclusion -->
+    <section id="conclusion">
+      <h2>Conclusion</h2>
+      <p>
+        Physics-Informed Neural Networks offer a powerful framework that blends data-driven learning with established physical principles. By embedding the governing equations into the training process, PINNs produce solutions that are not only accurate but also physically consistent.
+      </p>
+      <p>
+        As the field matures, ongoing research continues to deepen our theoretical understanding while broadening practical applications across fluid dynamics, thermal management, material science, and beyond. With further advancements in optimization and adaptive techniques, PINNs are poised to become a cornerstone of scientific computing in complex systems.
+      </p>
+    </section>
+    
+    <!-- References -->
+    <section id="references">
+      <h2>References</h2>
+      <ol>
+        <li>Bellman, R.; Kalaba, R.E. <em>Dynamic Programming and Modern Control Theory</em>, 1965.</li>
+        <li>Karniadakis, G.E. et al. "Physics-Informed Machine Learning." <em>Nat. Rev. Phys.</em> 3(6): 422–440, 2021.</li>
+        <li>Cai, S. et al. "Physics-Informed Neural Networks (PINNs) for Fluid Mechanics: A Review." <em>Acta Mech. Sinica</em> 37(12): 1727–1738, 2021.</li>
+        <li>Raissi, M., Perdikaris, P. & Karniadakis, G.E. "Physics-Informed Neural Networks: A Deep Learning Framework for Solving Forward and Inverse Problems Involving Nonlinear Partial Differential Equations." <em>J. Comput. Phys.</em> 378: 686–707, 2019.</li>
+        <li>Jagtap, A.D., Kawaguchi, K. & Karniadakis, G.E. "Adaptive Activation Functions Accelerate Convergence in Deep and Physics-Informed Neural Networks." <em>J. Comput. Phys.</em> 404: 109136, 2020.</li>
+      </ol>
+    </section>
+  </article>
+  
+  <!-- Footer (reusing main site footer structure) -->
+  <footer>
+      <div class="container">
+          <div class="footer-content">
+              <div class="footer-about">
+                  <h3>Guido de Carvalho</h3>
+                  <p>Computational Modeling &amp; AI Researcher</p>
+              </div>
+              <div class="footer-nav">
+                  <h3>Navigation</h3>
+                  <ul>
+                      <li><a href="../#about">About</a></li>
+                      <li><a href="../#research">Research</a></li>
+                      <li><a href="../#experience">Experience</a></li>
+                      <li><a href="../#publications">Publications</a></li>
+                      <li><a href="../#contact">Contact</a></li>
+                  </ul>
+              </div>
+          </div>
+          <div class="footer-bottom">
+              <div class="social-links">
+                  <a href="https://www.linkedin.com/in/guido-fraga" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" class="linkedin">
+                      <i class="fab fa-linkedin"></i>
+                  </a>
+                  <a href="https://github.com/guidofraga" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" class="github">
+                      <i class="fab fa-github"></i>
+                  </a>
+                  <a href="https://www.researchgate.net/profile/Guido-Carvalho" target="_blank" rel="noopener noreferrer" aria-label="ResearchGate Profile" class="researchgate">
+                      <i class="fab fa-researchgate"></i>
+                  </a>
+              </div>
+              <p>&copy; 2025 Guido de Carvalho. All rights reserved.</p>
+          </div>
+      </div>
+  </footer>
+  
+  <!-- Additional JS for Interactive Plot -->
+  <script>
+    // Prepare sample data for the interactive demonstration.
+    var xData = [];
+    var trueY = [];
+    var pinnY = [];
+    for (var i = 0; i <= 100; i++) {
+        var x = i / 10;
+        xData.push(x);
+        // True function: sin(x)
+        trueY.push(Math.sin(x));
+        // PINN prediction: sin(x) with noise
+        pinnY.push(Math.sin(x) + (Math.random() - 0.5) * 0.3);
+    }
+    
+    var traceTrue = {
+        x: xData,
+        y: trueY,
+        mode: 'lines',
+        name: 'True Function',
+        line: { color: 'green', width: 3 }
+    };
+    
+    var tracePINN = {
+        x: xData,
+        y: pinnY,
+        mode: 'lines+markers',
+        name: 'PINN Prediction',
+        line: { color: 'red', dash: 'dash' }
+    };
+    
+    var layout = {
+        title: 'Interactive Demonstration of PINN Learning Process',
+        xaxis: { title: 'Input (x)' },
+        yaxis: { title: 'Output' },
+        margin: { t: 60, r: 30, b: 50, l: 60 }
+    };
+    
+    Plotly.newPlot('plotly-demo', [traceTrue, tracePINN], layout);
+    
+    // Create an interactive slider to adjust the noise level (simulating training refinement)
+    var sliderContainer = document.createElement('div');
+    sliderContainer.style.margin = "20px 0";
+    sliderContainer.innerHTML = '<label for="noiseSlider">Adjust Noise Level: </label><input type="range" id="noiseSlider" min="0" max="0.5" step="0.01" value="0.3">';
+    document.getElementById('plotly-demo').parentElement.insertBefore(sliderContainer, document.getElementById('plotly-demo'));
+    
+    document.getElementById('noiseSlider').addEventListener('input', function(e) {
+        var noiseLevel = parseFloat(e.target.value);
+        var newPINN = [];
+        for (var i = 0; i < xData.length; i++) {
+            newPINN.push(Math.sin(xData[i]) + (Math.random() - 0.5) * noiseLevel);
+        }
+        Plotly.update('plotly-demo', { y: [trueY, newPINN] });
+    });
+  </script>
 </body>
 </html>

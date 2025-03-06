@@ -25,3 +25,57 @@ section:nth-child(even) {
     transform: translateX(-50%);
     width: 80px;
 }
+/* Subsection spacing */
+.subsection {
+    margin: 3rem 0;
+}
+
+.subsection:first-child {
+    margin-top: 0;
+}
+
+.subsection:last-child {
+    margin-bottom: 0;
+}
+
+/* Timeline container fix */
+.timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+
+.subsection-title h3{
+    color: var(--primary-dark);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-left: 2.5rem;
+}
+
+.subsection-title h3::before {
+    content: "";
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--primary);
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 0.75fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+    justify-content: center; /* Center the grid items */
+}
+
+@media (max-width: 768px) {
+    .card-grid {
+        grid-template-columns: minmax(250px, 350px); /* Single column with a smaller min width */
+        justify-content: center; /* Ensure the single item is centered */
+    }
+}
