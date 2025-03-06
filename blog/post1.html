@@ -3,8 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Deep Dive into Physics-Informed Neural Networks</title>
+  <title>Physics-Informed Neural Networks</title>
   
+  <!-- Favicon Setup -->
+  <link rel="icon" type="image/png" href="/assets/images/icons/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/assets/images/icons/favicon.svg" />
+  <link rel="shortcut icon" href="/assets/images/icons/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="MyWebSite" />
+  <link rel="manifest" href="/assets/images/icons/site.webmanifest" />
+
   <!-- Favicon and base CSS (assumed to be included via main.css) -->
   <link rel="stylesheet" href="../styles/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -14,7 +22,6 @@
   <style>
     /* Header Banner for Deep Dive Blog Post */
     .blog-post-header {
-      background: url('../assets/images/pinn-banner-deep.jpg') center/cover no-repeat;
       color: #fff;
       padding: 120px 20px;
       text-align: center;
@@ -112,7 +119,8 @@
   
   <!-- Blog Post Header -->
   <header class="blog-post-header">
-      <div class="container">
+    <canvas id="neural-network"></canvas>
+    <div class="container">
           <h1>Deep Dive into Physics-Informed Neural Networks</h1>
           <p class="post-meta">By Guido de Carvalho | March 2025 | Computational Modeling & AI Research</p>
       </div>
@@ -350,5 +358,6 @@
         Plotly.update('plotly-demo', { y: [trueY, newPINN] });
     });
   </script>
+  <script src="../js/main.js"></script>
 </body>
 </html>
